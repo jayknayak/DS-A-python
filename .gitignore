@@ -1,0 +1,6 @@
+.idea
+.class
+.log
+.tmp
+.iws
+**/__pycache__
