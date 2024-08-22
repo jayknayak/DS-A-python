@@ -1,3 +1,4 @@
+# https://www.hackerrank.com/challenges/merge-the-tools/problem?isFullScreen=true
 def merge_the_tools(string, k):
     # your code goes here
     substr_count = int(len(string) / k)
