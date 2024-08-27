@@ -1,16 +1,11 @@
-# This is a sample Python script.
+# https://www.hackerrank.com/challenges/write-a-function/problem
+def is_leap(n):
+    if n % 400 == 0:
+        return True
+    if n % 100 == 0:
+        return False
+    if n % 4 == 0:
+        return True
+    return False
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(is_leap(2100))
