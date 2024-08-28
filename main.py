@@ -9,3 +9,7 @@ def is_leap(n):
     return False
 
 print(is_leap(2100))
+
+from itertools import islice
+
+print(list(islice('ABCDEFG', 5)))
