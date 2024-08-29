@@ -73,3 +73,44 @@ linked_list.delete_node(0)
 print('Linked List after delete operation:')
 linked_list.print_linked_list()
 
+
+def print_reverse_linked_list(node):
+    if not node:
+        return
+    print_reverse_linked_list(node.next)
+    print(node.data)
+
+
+def reverse_linked_list(head, acc=None):
+    if not head:
+        return acc
+    next_node = head.next
+    head.next = acc
+    return reverse_linked_list(next_node, head)
+
+
+def reverse_linked_list_iterative(head):
+    prev_node = None
+    while head:
+        next_node = head.next
+        head.next = prev_node
+        prev_node = head
+        head = next_node
+    return prev_node
+
+
+def print_linked_list(head):
+    while head:
+        print(head.data, end=' -> ')
+        head = head.next
+    print('null')
+
+
+print('Linked List after recursive reverse operation:')
+reversed_head = reverse_linked_list(linked_list.head)
+print_linked_list(reversed_head)
+print('Linked List after iterative reverse operation:')
+reversed_head_iterative = reverse_linked_list_iterative(reversed_head)
+print_linked_list(reversed_head_iterative)
+
+
