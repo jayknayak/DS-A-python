@@ -1,3 +1,8 @@
+# Includes the following implementations:
+# 1. CRUD on a LinkedList: insert_new_head, insert_node_at_end, insert_node_after_given_node, delete_node, print_linked_list
+# 2. Reversing a LinkedList: print_reverse_linked_list, reverse_linked_list, reverse_linked_list_iterative
+# 3. Comparing two LinkedLists: compare_lists
+
 class LinkedListNode:
     def __init__(self, node_data):
         self.data = node_data
@@ -112,5 +117,16 @@ print_linked_list(reversed_head)
 print('Linked List after iterative reverse operation:')
 reversed_head_iterative = reverse_linked_list_iterative(reversed_head)
 print_linked_list(reversed_head_iterative)
+
+
+def compare_lists(llist1, llist2):
+    while llist1 and llist2:
+        if llist1.data != llist2.data:
+            return 0
+        llist1 = llist1.next
+        llist2 = llist2.next
+    if llist1 or llist2:
+        return 0
+    return 1
 
 
