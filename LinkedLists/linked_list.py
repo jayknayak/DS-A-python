@@ -2,6 +2,7 @@
 # 1. CRUD on a LinkedList: insert_new_head, insert_node_at_end, insert_node_after_given_node, delete_node, print_linked_list
 # 2. Reversing a LinkedList: print_reverse_linked_list, reverse_linked_list, reverse_linked_list_iterative
 # 3. Comparing two LinkedLists: compare_lists
+# 4. Cycle detection: has_cycle
 
 class LinkedListNode:
     def __init__(self, node_data):
@@ -130,3 +131,15 @@ def compare_lists(llist1, llist2):
     return 1
 
 
+# Two-pointer method solution (AKA Floyd's Tortoise and Hare Algorithm)
+def has_cycle(head):
+    if not head or not head.next:
+        return 0
+    slow = head
+    fast = head.next
+    while slow != fast:
+        if not fast or not fast.next:
+            return 0
+        slow = slow.next
+        fast = fast.next.next
+    return 1
