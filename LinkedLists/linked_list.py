@@ -3,6 +3,7 @@
 # 2. Reversing a LinkedList: print_reverse_linked_list, reverse_linked_list, reverse_linked_list_iterative
 # 3. Comparing two LinkedLists: compare_lists
 # 4. Cycle detection: has_cycle
+# 5. Merge two sorted linked lists: merge_linked_lists
 
 class LinkedListNode:
     def __init__(self, node_data):
@@ -143,3 +144,36 @@ def has_cycle(head):
         slow = slow.next
         fast = fast.next.next
     return 1
+
+
+def merge_linked_lists(head1, head2):
+    if not head1 and not head2:
+        return head1 or head2
+    new_list = LinkedList()
+    while head1 and head2:
+        if head1.data <= head2.data:
+            new_list.insert_node_at_end(head1.data)
+            head1 = head1.next
+        else:
+            new_list.insert_node_at_end(head2.data)
+            head2 = head2.next
+
+    while head1:
+        new_list.insert_node_at_end(head1.data)
+        head1 = head1.next
+    while head2:
+        new_list.insert_node_at_end(head2.data)
+        head2 = head2.next
+    return new_list.head
+
+
+linked_list1 = LinkedList()
+linked_list1.insert_node_at_end(1)
+linked_list1.insert_node_at_end(2)
+linked_list1.insert_node_at_end(3)
+linked_list2 = LinkedList()
+linked_list2.insert_node_at_end(3)
+linked_list2.insert_node_at_end(4)
+print('merged linked list')
+print_linked_list(merge_linked_lists(linked_list1.head, linked_list2.head))
+
