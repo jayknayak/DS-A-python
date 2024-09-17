@@ -22,5 +22,11 @@ def reverse_array(nums, start_index, end_index):
         start_index += 1
         end_index -= 1
 
+# Another approach in Python using slicing technique
+def rotateLeft(d, arr):
+    n = len(arr)
+    d = d % n  # Handle cases where d > n
+    return arr[d:] + arr[:d]
 
 print(rotateArray([1,2,3,4,5,6,7], 3))
+
